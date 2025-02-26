@@ -19,7 +19,6 @@ pipeline {
                             -Dsonar.host.url=http://sonarqube:9000 \
                             -Dsonar.projectKey=jenkins-sonar \
                             -Dsonar.sources=. \
-                            -Dsonar.tests=tests
                         """
                     }
                 }
