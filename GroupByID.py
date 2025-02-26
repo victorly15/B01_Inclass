@@ -1,3 +1,4 @@
+import secrets
 import random
 import time
 
@@ -16,7 +17,9 @@ def display_welcome():
     print("Good luck!")
 
 def catch_fish():
-    fish = random.choice(list(fishes.keys()))
+    # Use secrets to select a fish securely
+    fish_index = secrets.randbelow(len(fishes))  # Get a random index
+    fish = list(fishes.keys())[fish_index]  # Select the fish based on index
     score = fishes[fish]
     print(f"You caught a {fish}! (Score: {score})")
     return score
