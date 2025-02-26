@@ -1,12 +1,13 @@
 SOURCE_FILE = '2024-08-08.log'
+INSTANCEID = "Instance Id = "
 
 with open(SOURCE_FILE, 'r') as file:
     log_data = file.readlines()
 
 instance_ids = []
 for line in log_data:
-    if "Instance Id = " in line:
-        instance_id = line[line.index("Instance Id = ") + 14:line.index("Instance Id = ") + 50].strip()
+    if INSTANCEID in line:
+        instance_id = line[line.index(INSTANCEID) + 14:line.index(INSTANCEID) + 50].strip()
         if instance_id not in instance_ids:
             instance_ids.append(instance_id)
 
@@ -19,7 +20,7 @@ with open(output_file_name, 'w') as output_file:
         output_file.write(f"Instance ID: {instance_id}\n")
 
         for line in log_data:
-            if "Instance Id = " in line and instance_id in line:
+            if INSTANCEID in line and instance_id in line:
                 output_file.write(f"Entity ID: {line[line.index('"entityId":') + 11:line.index('"entityId":') + 49].strip()}\n")
                 start_index = line.index('"entityName":') + len('"entityName":') + 1
                 end_index = line.index('"', start_index)
