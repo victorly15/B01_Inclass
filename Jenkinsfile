@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/victorly15/B01_Inclass.git'
+                 git branch: 'main', url: 'https://github.com/victorly15/B01_Inclass.git'
             }
         }
 
