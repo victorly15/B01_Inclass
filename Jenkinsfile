@@ -16,7 +16,7 @@ pipeline {
                     withSonarQubeEnv('SonarQube') {
                         sh """
                             ${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.host.url=http://localhost:9000 \
+                            -Dsonar.host.url=http://sonarqube:9000 \
                             -Dsonar.projectKey=jenkins-sonar \
                             -Dsonar.sources=. \
                         """
